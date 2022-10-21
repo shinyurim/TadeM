@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import project.TadeM.Member.BuyerInput;
-import project.TadeM.Member.SellerInput;
+import project.TadeM.Member.Input.BuyerInput;
+import project.TadeM.Member.Input.SellerInput;
 
 @Controller
 public class MemberController {
