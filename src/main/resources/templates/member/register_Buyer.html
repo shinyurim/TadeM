@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>구매자 회원가입</title>
+</head>
+<body>
+<h1>TadeM에 오신걸 환영합니다, 구매자님! 아래 사항을 입력해주세요!</h1>
+<!--
+필요 : 이메일 / 이름 / 비밀번호 / 전화번호 / 개인정보 수집 및 이용동의, 개인정보 제 3자 제공동의 / 결제내역 메일전송 수신동의(선택)
+-->
+<form method="post">
+  <div>
+    <input type="email" name="buyer_Email" placeholder="이메일을 입력해주세요." required/>
+  </div>
+  <div>
+    <input type="text" input name="user_Name" placeholder="성함을 입력해주세요." required/>
+  </div>
+  <div>
+    <input type="password" input name="password" placeholder="비밀번호를 입력해주세요." required/>
+  </div>
+  <div>
+    <input type="password" input name="rePassword" placeholder="비밀번호를 한번 더 입력해주세요." required/>
+  </div>
+  <div>
+    <input type="tel" input name="buyer_Tel" placeholder="전화번호를 입력해주세요." required/>
+  </div>
+  <div>
+    개인정보 수집동의(필수)<input type="checkbox" input name="collection_Yn" required/>
+  </div>
+  <div>
+    개인정보 제3자 제공동의(필수)<input type="checkbox" input name="provide_Yn" required/>
+  </div>
+  <div>
+    결제메일 전송 수신동의(선택)<input type="checkbox" input name="payment_Mail_Yn"/>
+  </div>
+  <div>
+    <button> 회원가입하기</button>
+  </div>
+</form>
+</body>
+</html>
