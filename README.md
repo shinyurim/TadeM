@@ -162,3 +162,5 @@
 # DataBase
 1. JPA
 2. MySQL
+
+![test coverage](.github/badges/jacoco.svg)
