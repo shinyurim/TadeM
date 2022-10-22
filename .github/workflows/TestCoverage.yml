@@ -2,7 +2,7 @@ name: Test Coverage
 
 on:
   pull_request:
-    branches: [master, develop]
+    branches: test
 
 jobs:
   build:
@@ -38,3 +38,6 @@ jobs:
           default_author: github_actions
           message: 'commit badge'
           add: '*.svg'
+
+      - name: Test with Gradle
+        run: ./gradlew --info test
