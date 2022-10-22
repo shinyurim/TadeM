@@ -164,4 +164,4 @@
 2. MySQL
 
 
-![test coverage](.github/badges/jacoco.svg)
+![test coverage](.github/bages/jacoco.svg)
