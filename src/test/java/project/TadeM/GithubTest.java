@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class SampleTest {
+public class GithubTest {
 	@Test
-	void sampleTest(){
+	void githubTest(){
 		assertEquals(1,1);
 	}
 
