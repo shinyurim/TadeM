@@ -9,4 +9,9 @@ public class SampleTest {
 	void githubActionTest() {
 		assertEquals(1, 1);
 	}
+	
+	@Test
+	void githubActionTest2() {
+		assertEquals(2, 2);
+	}
 }
