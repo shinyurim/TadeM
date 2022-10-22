@@ -164,4 +164,4 @@
 2. MySQL
 
 
-[![Test Coverage](https://github.com/shinyurim/TadeM/actions/workflows/TestCoverage.yml/badge.svg)](https://github.com/shinyurim/TadeM/actions/workflows/TestCoverage.yml)
+![test coverage](.github/badges/jacoco.svg)
