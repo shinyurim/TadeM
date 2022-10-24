@@ -1,4 +1,5 @@
 # TadeM
+![로고](https://user-images.githubusercontent.com/108784880/197512666-f2a8c90d-5d90-4328-afba-d02556d6d1a5.png)
 ## 누구나 자신의 재능을 판매할 수 있는 재능거래소
 
 ### 프로젝트 소개 
@@ -163,5 +164,8 @@
 1. JPA
 2. MySQL
 
+## 프로젝트ERD
+![TadeM_ERD](https://user-images.githubusercontent.com/108784880/197512697-47abeaff-d5d1-445e-9460-85587e23a3af.png)
 
-[![Test Coverage](https://github.com/shinyurim/TadeM/actions/workflows/TestCoverage.yml/badge.svg)](https://github.com/shinyurim/TadeM/actions/workflows/TestCoverage.yml)
+
+![test coverage](.github/badges/jacoco.svg)
