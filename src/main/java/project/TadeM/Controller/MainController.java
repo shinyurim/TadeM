@@ -14,12 +14,6 @@ public class MainController {
 	@RequestMapping("/")
 	public String mainPage(){ // 메인 페이지 Controller
 
-		/*
-		String email = "yurim12@naver.com";
-		String subject = "테스트";
-		String text = "보이나요?";
-		mailComponents.sendMail(email,subject,text);*/
-
 		return "mainPage";
 	}
 }

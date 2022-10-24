@@ -19,7 +19,7 @@ public class BuyerServiceImpl implements BuyerService{
 
 	@Override
 	public boolean register(BuyerInput parameter) {
-		Optional<Buyer> optionalBuyer = buyerRepository.findById(parameter.getBuyer_Email());
+		Optional<Buyer> optionalBuyer = buyerRepository.findById(parameter.getBuyerEmail());
 
 		if (optionalBuyer.isPresent()){ // 가입된 이메일이 존재하면
 			return false;
@@ -27,28 +27,40 @@ public class BuyerServiceImpl implements BuyerService{
 
 		String uuid = UUID.randomUUID().toString();
 
-		Buyer buyer = new Buyer();
-		buyer.setBuyer_Email(parameter.getBuyer_Email());
-		buyer.setUser_Name(parameter.getUser_Name());
-		buyer.setPassword(parameter.getPassword());
-		buyer.setBuyer_Tel(parameter.getBuyer_Tel());
-		buyer.setCollection_Yn(parameter.getCollection_Yn());
-		buyer.setProvide_Yn(parameter.getProvide_Yn());
-		buyer.setPayment_Mail_Yn(parameter.getPayment_Mail_Yn());
-		buyer.setReg_Dt(LocalDateTime.now());
-
-		buyer.setMail_Auth_Yn(false);
-		buyer.setMail_Auth_Key(UUID.randomUUID().toString());
-
+		Buyer buyer = Buyer.builder()
+			.buyerEmail(parameter.getBuyerEmail())
+			.buyerName(parameter.getBuyerName())
+			.buyerTel(parameter.getBuyerTel())
+			.password(parameter.getPassword())
+			.regDt(LocalDateTime.now())
+			.collectionYn(parameter.getCollectionYn())
+			.provideYn(parameter.getProvideYn())
+			.paymentMailYn(parameter.getPaymentMailYn())
+			.mailAuthYn(false)
+			.mailAuthKey(uuid)
+			.build();
 		buyerRepository.save(buyer);
 
-		String email = parameter.getBuyer_Email();
+		String email = parameter.getBuyerEmail(); // 다시 확인할부분 *** 왜 링크가 안걸리지??
 		String subject = "TestM 인증 이메일입니다.";
-		String text = "<p>TestM에 오신것을 환영합니다.<p><p>아래 링크를 클릭하셔서 가입을 완료해주세요!"
-			+ "</p><div><a href='http://localhost:8080/member/buyer-email-auth?id=97eec864-4f91-486c-a71d-d9d9b29e7d81</a></div>";
+		String text = "TestM에 오신것을 환영합니다.아래 링크를 클릭하셔서 가입을 완료해주세요!"
+			+ "<div><a target='_blank' href='http://localhost:8080/member/buyer-email-auth?id=" + uuid + "'> 가입 완료 </a></div>";
 
 		mailComponents.sendMail(email,subject,text);
 
 		return true;
 	}
+
+	@Override
+	public boolean emailAuth(String uuid) { // 이메일 확인 받았을 때
+		Optional<Buyer> optionalBuyer = buyerRepository.findByMailAuthKey(uuid);
+		if (!optionalBuyer.isPresent()){
+			return false;
+		}
+		Buyer buyer = optionalBuyer.get();
+		buyer.setMailAuthYn(true);
+		buyerRepository.save(buyer);
+		return true;
+	}
+
 }

@@ -51,7 +51,31 @@ public class MemberController {
 
 		boolean result = sellerService.register(parameter);
 		model.addAttribute("result", result);
-
+		System.out.println(result);
 		return "member/register_complete";
+	}
+
+	@GetMapping("/member/buyer-email-auth") // 이메일 활성화 페이지(구매자전송용)
+	public String emailAuth(Model model, HttpServletRequest request){
+
+		String uuid = request.getParameter("id");
+		System.out.println(uuid);
+
+		boolean result = buyerService.emailAuth(uuid);
+		model.addAttribute("result", result);
+
+		return "member/buyer_email_auth";
+	}
+
+	@GetMapping("/member/seller-email-auth") // 이메일 활성화 페이지(판매자전송용)
+	public String emailAuth2(Model model, HttpServletRequest request){
+
+		String uuid = request.getParameter("id");
+		System.out.println(uuid);
+
+		boolean result = sellerService.emailAuth2(uuid);
+		model.addAttribute("result", result);
+
+		return "member/seller_email_auth";
 	}
 }

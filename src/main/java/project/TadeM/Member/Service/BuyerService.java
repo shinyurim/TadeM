@@ -4,5 +4,6 @@ import project.TadeM.Member.Input.BuyerInput;
 
 public interface BuyerService {
 	boolean register(BuyerInput parameter);
+	boolean emailAuth(String uuid);
 
 }
