@@ -5,7 +5,7 @@ import lombok.Data;
 
 
 @Data
-public class SellerDto {
+public class SellerDto{
 
 	String sellerEmail;
 	String sellerName;

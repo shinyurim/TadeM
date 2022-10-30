@@ -6,7 +6,7 @@ import project.TadeM.Admin.Dto.SellerDto;
 import project.TadeM.Admin.model.SellerParam;
 
 @Mapper
-public interface SellerMapper {
+public interface SellerMapper{
 
 	List<SellerDto> selectList(SellerParam parameter);
 

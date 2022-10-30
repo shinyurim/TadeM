@@ -9,7 +9,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
 @Log4j2
-public class CustomLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler { // 에러
+public class CustomLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler{ // 에러
 
 
 	@Override

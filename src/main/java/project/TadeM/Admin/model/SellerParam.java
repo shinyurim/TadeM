@@ -4,7 +4,7 @@ package project.TadeM.Admin.model;
 import lombok.Data;
 
 @Data
-public class SellerParam {
+public class SellerParam{
 
 	long pageIndex;
 	long pageSize;

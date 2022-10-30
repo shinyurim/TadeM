@@ -16,7 +16,7 @@ import project.TadeM.Member.Service.SellerService;
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	/*private final BuyerService buyerService;*/
 	private final SellerService sellerService;

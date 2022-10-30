@@ -1,6 +1,6 @@
 package project.TadeM.util;
 
-public class PageUtil {
+public class PageUtil{
 
 	private long totalCount;
 	private long pageSize = 10;
