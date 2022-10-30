@@ -10,10 +10,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity(name = "buyer")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Data
 public class Buyer {
 
 	@Id

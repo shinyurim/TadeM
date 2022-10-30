@@ -3,6 +3,8 @@ package project.TadeM.components;
 
 import javax.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Component;
 public class MailComponents {
 
 	private final JavaMailSender javaMailSender;
+	private final Logger logger = LoggerFactory.getLogger(MailComponents.class);
 
 	public boolean sendMail(String mail, String subject, String text) {
 
@@ -32,7 +35,7 @@ public class MailComponents {
 			javaMailSender.send(msg);
 			result = true;
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			logger.info(e.getMessage()); // sout -> logger로 수정
 		}
 		return result;
 	}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.TadeM.Admin.Mapper.BuyerMapper">
+
+  <select id="selectListCount"
+    resultType="long">
+
+    select count(*)
+    from buyer
+    where 1 = 1
+
+    <if test="searchType != null and searchValue != null">
+      <choose>
+        <when test="searchType == 'sellerEmail'">
+          and buyer_Email like concat('%', #{searchValue}, '%')
+        </when>
+        <when test="searchType == 'sellerName'">
+          and buyer_Name like concat('%', #{searchValue}, '%')
+        </when>
+        <when test="searchType == 'sellerTel'">
+          and buyer_Tel like concat('%', #{searchValue}, '%')
+        </when>
+        <otherwise>
+          and
+          ( buyer_Email like concat('%', #{searchValue}, '%')
+          or buyer_Name like concat('%', #{searchValue}, '%')
+          or buyer_Tel like concat('%', #{searchValue}, '%')
+          )
+        </otherwise>
+      </choose>
+    </if>
+  </select>
+
+  <select id="selectList"
+    resultType="project.TadeM.Admin.Dto.BuyerDto">
+
+    select *
+    from buyer
+    where 1 = 1
+
+    <if test="searchType != null and searchValue != null">
+      <choose>
+        <when test="searchType == 'buyerEmail'">
+          and buyer_Email like concat('%', #{searchValue}, '%')
+        </when>
+        <when test="searchType == 'buyerName'">
+          and buyer_Name like concat('%', #{searchValue}, '%')
+        </when>
+        <when test="searchType == 'buyerTel'">
+          and buyer_Tel like concat('%', #{searchValue}, '%')
+        </when>
+        <otherwise>
+          and
+          ( buyer_Email like concat('%', #{searchValue}, '%')
+          or buyer_Name like concat('%', #{searchValue}, '%')
+          or buyer_Tel like concat('%', #{searchValue}, '%')
+          )
+        </otherwise>
+      </choose>
+    </if>
+
+    limit #{pageStart}, #{pageEnd}
+
+  </select>
+</mapper>

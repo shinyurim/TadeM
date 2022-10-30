@@ -12,7 +12,7 @@ public class MainController {
 	private final MailComponents mailComponents;
 
 	@RequestMapping("/")
-	public String mainPage(){ // 메인 페이지 Controller
+	public String mainPage() { // 메인 페이지 Controller
 
 		return "mainPage";
 	}
