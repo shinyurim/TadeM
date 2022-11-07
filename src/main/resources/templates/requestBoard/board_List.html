@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>의뢰게시판 메인</title>
+</head>
+<div class="container">
+<h1>의뢰게시판 메인</h1>
+  <table class="board_List">
+
+    <thead>
+    <tr>
+      <th scope="col">글번호</th>
+      <th scope="col">제목</th>
+     <th scope="col">조회수</th>
+      <th scope="col">의뢰금액</th>
+      <th scope="col">의뢰기간(~까지)</th>
+
+    <tr th:each="x : ${list}">
+      <td th:text="${x.id}"></td>
+      <td th:text="${x.title}"></td>
+      <td th:text="${x.hits}"></td>
+      <td th:text="${x.price}"></td>
+      <td th:text="${x.period}"></td>
+    </tr>
+    <tr th:if="${#lists.size(list) < 1}">
+      <td colspan="5">
+        <p class="nothing"> 조회된 결과가 없습니다. </p>
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+<div>
+<a href="/requestBoard/board_Write">글쓰기</a>
+</div>
+</div>
+</html>
