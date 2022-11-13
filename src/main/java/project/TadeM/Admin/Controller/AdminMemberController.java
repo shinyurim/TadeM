@@ -25,7 +25,7 @@ public class AdminMemberController {
 
 	@GetMapping("/member_List_Select") // 관리자 - 회원관리 선택창
 	public String member_Select() {
-		return "admin/member_List_Select";
+	 	return "admin/member_List_Select";
 	}
 
 

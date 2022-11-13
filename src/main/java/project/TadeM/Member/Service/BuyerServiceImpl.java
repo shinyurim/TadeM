@@ -21,7 +21,7 @@ import project.TadeM.components.MailComponents;
 
 @RequiredArgsConstructor
 @Service
-public class BuyerServiceImpl implements BuyerService {
+public class BuyerServiceImpl implements BuyerService{
 
 	private final BuyerRepository buyerRepository;
 	private final MailComponents mailComponents;

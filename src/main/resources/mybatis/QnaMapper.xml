@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.TadeM.Admin.Mapper.QnaMapper">
+
+  <select id="selectQnaList" resultType="project.TadeM.Admin.Dto.QnaDto">
+
+    select
+    id, title
+    from qna
+    order by id;
+
+  </select>
+
+  <insert id="insertQna" parameterType="project.TadeM.Admin.Dto.QnaDto">
+    <![CDATA[
+            INSERT INTO qna
+            (
+                title,
+                contents
+            )
+            VALUE
+            (
+                #{title},
+                #{contents}
+            )
+        ]]>
+  </insert>
+
+  <select id="selectQnaDetail" parameterType="int" resultType="project.TadeM.Admin.Dto.QnaDto">
+    <![CDATA[
+			SELECT
+				id, title, contents
+			FROM
+				qna
+			WHERE
+				id = ${id}
+		]]>
+  </select>
+</mapper>

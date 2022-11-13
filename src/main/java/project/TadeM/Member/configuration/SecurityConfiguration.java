@@ -16,7 +16,7 @@ import project.TadeM.Member.Service.SellerService;
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	/*private final BuyerService buyerService;*/
 	private final SellerService sellerService;
@@ -54,6 +54,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				, "/member/buyer_email_auth"
 				, "/member/seller_email_auth"
 				, "/member/login_select"
+				, "/requestBoard/board_List"
+				, "/requestBoard/board_Detail"
 			) // 추후 공지사항 + QnA페이지 추가예정 + 이메일 인증 허용해줘야돼
 			.permitAll();
 

@@ -6,7 +6,7 @@ import project.TadeM.Admin.Dto.SellerDto;
 import project.TadeM.Admin.model.SellerParam;
 import project.TadeM.Member.Input.SellerInput;
 
-public interface SellerService extends UserDetailsService {
+public interface SellerService extends UserDetailsService{
 
 	boolean register(SellerInput parameter);
 

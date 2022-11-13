@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>공지사항 글 작성</title>
+</head>
+<body>
+<div class="container">
+  <h1>공지사항 게시글 등록</h1>
+  <form action="/admin/notice/insertNotice" method="post">
+    <tr>
+      <td>제목</td>
+      <td><input type="text" id="title" name="title" required></td>
+    </tr>
+    <br>
+    <tr>
+      <td>내용</td>
+      <td colspan="2">
+        <textarea id="contents" name="contents" required></textarea>
+      </td>
+    </tr>
+    <button input type="submit" id="submit">작성</button>
+  </form>
+</div>
+</body>
+</html>

@@ -65,7 +65,6 @@ public class SellerServiceImpl implements SellerService {
 
 		return true;
 	}
-
 	@Override
 	public boolean SellerEmailAuth(String uuid) { // 이메일 인증
 		Optional<Seller> optionalSeller = sellerRepository.findByMailAuthKey(uuid);

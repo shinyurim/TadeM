@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>공지사항 상세정보</title>
+
+</head>
+<body>
+<h1>상세정보</h1>
+<table class="container">
+  <table class="notice_detail">
+    <colgroup>
+      <col width="15%"/>
+      <col width="35%"/>
+      <col width="15%"/>
+      <col width="35%"/>
+      <col width="15%"/>
+      <col width="35%"/>
+    </colgroup>
+    <tr>
+      <th scope="row">글 번호</th>
+      <td th:text="${notice.id}"></td>
+
+      <th scope="row">조회수</th>
+      <td th:text="${notice.hits}"></td>
+    </tr>
+
+    <tr>
+      <th scope="row">제목</th>
+      <td th:text="${notice.title}"></td>
+    </tr>
+
+    <tr>
+      <th scope="row">내용</th>
+      <td th:text="${notice.contents}"></td>
+    </tr>
+  </table>
+</table>
+</body>
+</html>

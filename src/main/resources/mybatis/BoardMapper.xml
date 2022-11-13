@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.TadeM.requestBoard.mapper.BoardMapper">
+
+  <select id="selectBoardList" resultType="project.TadeM.requestBoard.dto.BoardDto">
+
+		select
+		id, title, hits, price, period
+		from requestBoard
+		order by id;
+
+	</select>
+
+  <insert id="insertBoard" parameterType="project.TadeM.requestBoard.dto.BoardDto">
+    <![CDATA[
+            INSERT INTO requestBoard
+            (
+                title,
+                contents,
+                price,
+                period
+            )
+            VALUE
+            (
+                #{title},
+                #{contents},
+               #{price},
+                #{period}
+            )
+        ]]>
+  </insert>
+
+	<update id="updateHitCount" parameterType="int">
+		<![CDATA[
+			UPDATE
+				requestBoard
+			SET
+				hits = hits + 1
+			WHERE
+				id = #{id}
+		]]>
+	</update>
+	<select id="selectBoardDetail" parameterType="int" resultType="project.TadeM.requestBoard.dto.BoardDto">
+		<![CDATA[
+			SELECT
+				id, title, contents, hits,
+				regDt, price, period
+			FROM
+				requestBoard
+			WHERE
+				id = ${id}
+		]]>
+	</select>
+
+
+
+
+</mapper>
