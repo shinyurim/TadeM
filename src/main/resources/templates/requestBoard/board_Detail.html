@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>의뢰게시판 상세정보</title>
+
+</head>
+<body>
+<h1>상세정보</h1>
+<table class="container">
+  <table class="board_detail">
+    <colgroup>
+      <col width="15%"/>
+      <col width="35%"/>
+      <col width="15%"/>
+      <col width="35%"/>
+      <col width="15%"/>
+      <col width="35%"/>
+    </colgroup>
+    <tr>
+      <th scope="row">글 번호</th>
+      <td th:text="${board.id}"></td>
+
+      <th scope="row">조회수</th>
+      <td th:text="${board.hits}"></td>
+    </tr>
+
+    <tr>
+      <th scope="row">제목</th>
+      <td th:text="${board.title}"></td>
+    </tr>
+
+    <tr>
+      <th scope="row">내용</th>
+      <td th:text="${board.contents}"></td>
+    </tr>
+
+    <tr>
+      <th scope="row">의뢰금액</th>
+      <td th:text="${board.price}"></td>
+    </tr>
+
+    <tr>
+      <th scope="row">의뢰기간(~까지)</th>
+      <td th:text="${board.period}"></td>
+    </tr>
+    </td>
+  </table>
+  <div>
+    <a href="/requestBoard/board_List">뒤로가기</a>
+  </div>
+  </div>
+
+  <div>
+    <button><a href="#">지원</a></button>
+  </div>
+</table>
+</body>
+</html>

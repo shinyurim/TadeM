@@ -1,4 +1,4 @@
-package project.TadeM.requestBoard.dto;
+package project.TadeM.Admin.Dto;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BoardDto {
+public class NoticeDto {
 
 	private Long id;
 
@@ -18,8 +18,5 @@ public class BoardDto {
 	private String contents;
 	private LocalDateTime regDt;
 	private int hits;
-	private int price;
-	private String period;
-
 
 }

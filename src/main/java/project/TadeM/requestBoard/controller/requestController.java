@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import project.TadeM.requestBoard.dto.BoardDto;
 import project.TadeM.requestBoard.repository.boardRepository;
@@ -18,7 +19,6 @@ public class requestController {
 
 	@Autowired
 	private BoardService boardService;
-
 	private boardRepository br;
 
 
@@ -43,4 +43,13 @@ public class requestController {
 		return "redirect:/requestBoard/board_List";
 	}
 
+	@RequestMapping("/board_Detail")
+	public ModelAndView boardDetail(@RequestParam int id) throws Exception{
+		ModelAndView mv = new ModelAndView("/requestBoard/board_Detail");
+
+		BoardDto board = boardService.selectBoardDetail(id);
+		mv.addObject("board", board);
+
+		return mv;
+	}
 }

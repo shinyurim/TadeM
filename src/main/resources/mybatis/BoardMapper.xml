@@ -32,4 +32,30 @@
             )
         ]]>
   </insert>
+
+	<update id="updateHitCount" parameterType="int">
+		<![CDATA[
+			UPDATE
+				requestBoard
+			SET
+				hits = hits + 1
+			WHERE
+				id = #{id}
+		]]>
+	</update>
+	<select id="selectBoardDetail" parameterType="int" resultType="project.TadeM.requestBoard.dto.BoardDto">
+		<![CDATA[
+			SELECT
+				id, title, contents, hits,
+				regDt, price, period
+			FROM
+				requestBoard
+			WHERE
+				id = ${id}
+		]]>
+	</select>
+
+
+
+
 </mapper>
