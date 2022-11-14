@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>제품 등록</title>
   <style>
-    .write table{
+    .write table {
       width: 100%;
       border-collapse: collapse;
     }
+
     .write table th, .write table td {
       border: solid 1px #000;
     }
-    .buttons a, .buttons button{
+
+    .buttons a, .buttons button {
       border-width: 0;
       background-color: transparent;
       text-decoration: underline;
@@ -24,27 +26,64 @@
   </style>
 </head>
 <body>
-<h1>제품 등록</h1>
+<h1>내 제품관리</h1>
 <div class="write">
 
   <form method="post">
 
-  <table>
-   <tbody>
-    <tr>
-      <th>
-        제품이름 :
-      </th>
-      <td>
-        <input type="text" name="name" required placeholder="제품명 입력"/>
-      </td>
-    </tr>
-   </tbody>
-  </table>
-  <div class="buttons">
-    <button type="submit"> 등록 </button>
-    <a href="/product/product_List"> 내 제품 목록</a>
-  </div>
+    <table>
+      <tbody>
+      <tr>
+        <th> 카테고리</th>
+        <td>
+          <select name="categoryId" required>
+            <option value="">카테고리 선택</option>
+            <option
+                th:selected="${detail.categoryId == x.id}"
+                th:each="x : ${category}" th:value="${x.id}" th:text="${x.categoryName}">번역
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          제품이름 :
+        </th>
+        <td>
+          <input th:value="${detail.name}" type="text" name="name" required placeholder="제품명 입력"/>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          제품설명 :
+        </th>
+        <td>
+          <textarea th:text="${detail.contents}" name="contents" required placeholder="제품 설명란"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          제품가격 :
+        </th>
+        <td>
+          <input th:value="${detail.price}" type="text" name="price" required placeholder="제품가격 입력"/>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          작업소요기간 :
+        </th>
+        <td>
+          <input th:value="${detail.period}" type="text" name="period" required placeholder="yyyy-MM-dd로 입력해주세요."/>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="buttons">
+      <button th:if="${!editMode}" type="submit"> 등록</button>
+      <button th:if="${editMode}" type="submit"> 수정</button>
+      <a href="/product/product_List"> 내 제품 목록</a>
+    </div>
   </form>
 </div>
 </body>

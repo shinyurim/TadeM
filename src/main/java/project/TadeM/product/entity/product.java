@@ -22,9 +22,11 @@ public class product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 
+	Integer categoryId;
+
 	String name; // 제품 이름
 	String contents; // 제품 내용
 	int price; // 제품 가격
 	LocalDateTime regDt; // 제품 등록일
-	Date period; // 작업기간
+	String period; // 작업기간
 }
