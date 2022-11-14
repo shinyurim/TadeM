@@ -1,6 +1,8 @@
 package project.TadeM.product.Dto;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +17,7 @@ public class productDto {
 	long totalCount;
 	long seq;
 
-	Integer categoryId;
+	long categoryId;
 
 	Long id;
 	String name; // 제품 이름
@@ -35,5 +37,17 @@ public class productDto {
 			.period(product.getPeriod())
 			.regDt(product.getRegDt())
 			.build();
+	}
+
+	public static List<productDto> of(List<product> products){
+
+		if (products == null){
+			return null;
+		}
+		List<productDto> productList = new ArrayList<>();
+		for (product x : products){
+			productList.add(productDto.of(x));
+		}
+		return productList;
 	}
 }

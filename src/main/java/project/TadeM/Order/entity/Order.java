@@ -1,7 +1,7 @@
-package project.TadeM.product.entity;
+package project.TadeM.Order.entity;
+
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,17 +16,20 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class product {
+public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 
-	long categoryId;
+	long productId;
+	String userId;
 
-	String name; // 제품 이름
-	String contents; // 제품 내용
-	int price; // 제품 가격
-	LocalDateTime regDt; // 제품 등록일
-	String period; // 작업기간
+	Long payPrice; // 결제 금액
+	String status; // 거래 신청중 - 거래 진행중 - 거래 완료
+
+	LocalDateTime regDt; // 신청일
+
+
+
 }

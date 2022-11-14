@@ -60,6 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 				, "/admin/qna/general_Main"
 				, "/admin/notice/notice_Detail"
 				, "/admin/qna/qna_Detail"
+				, "/product/general/product_List"
 			) // 이메일 인증 허용해줘야돼
 			.permitAll();
 

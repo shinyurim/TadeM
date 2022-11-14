@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>제품 페이지(일반)</title>
+</head>
+<body>
+  <h1> 목록</h1>
+<div>
+  <a href="?">전체</a>
+
+  <th:block th:each="y : ${categoryList}">
+    |
+    <a th:href="'/product?categoryId=' + ${y.id}">
+      <span th:text="${y.categoryName}">카테고리명</span></a>
+  </th:block>
+  <hr/>
+  </div>
+  <ul>
+    <li th:each="x : ${list}">
+      <div>
+        <a th:href="'/product/' + ${x.id}">
+          <h3 th:text="${x.name}">제품명</h3>
+        </a>
+        <div>
+          <p th:text="${x.price}"></p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</body>
+</html>

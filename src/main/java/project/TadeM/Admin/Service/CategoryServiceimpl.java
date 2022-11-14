@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import project.TadeM.Admin.Dto.CategoryDto;
 import project.TadeM.Admin.Entity.Category;
+import project.TadeM.Admin.Mapper.CategoryMapper;
 import project.TadeM.Admin.model.CategoryInput;
 import project.TadeM.Admin.repository.CategoryRepository;
 
@@ -16,6 +17,7 @@ import project.TadeM.Admin.repository.CategoryRepository;
 public class CategoryServiceimpl implements CategoryService{
 
     private final CategoryRepository categoryRepository;
+    private final CategoryMapper categoryMapper;
 
     private Sort getSortBySortValueDesc(){
             return Sort.by(Sort.Direction.DESC, "sortValue");
@@ -63,5 +65,10 @@ public class CategoryServiceimpl implements CategoryService{
         categoryRepository.deleteById(id);
 
         return true;
+    }
+
+    @Override
+    public List<CategoryDto> frontList(CategoryDto parameter) {
+        return categoryMapper.select(parameter);
     }
 }

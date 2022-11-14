@@ -6,6 +6,9 @@ import lombok.Data;
 @Data
 public class productParam {
 
+	long categoryId;
+	long id;
+
 	long pageIndex;
 	long pageSize;
 

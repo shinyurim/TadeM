@@ -79,7 +79,7 @@ public class productServiceImpl implements productService {
 	}
 
 	@Override
-	public boolean del(String idList) {
+	public boolean del(String idList) { // 삭제
 
 		if (idList != null && idList.length() > 0){
 			String[] ids = idList.split(",");
@@ -95,5 +95,31 @@ public class productServiceImpl implements productService {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public List<productDto> frontList(productParam parameter) {
+
+		if (parameter.getCategoryId() < 1) {
+			List<product> productList = productRepository.findAll();
+			return productDto.of(productList);
+		}
+
+		Optional<List<product>> optionalProducts = productRepository.findByCategoryId(parameter.getCategoryId());
+
+		if (optionalProducts.isPresent()){
+			return productDto.of(optionalProducts.get());
+		}
+		return null;
+	}
+
+	@Override
+	public productDto frontDetail(long id) {
+
+		Optional<product> optionalProduct = productRepository.findById(id);
+		if (optionalProduct.isPresent()){
+			return productDto.of(optionalProduct.get());
+		}
+		return null;
 	}
 }

@@ -16,4 +16,8 @@ public interface productService {
 	boolean set(productInput parameter); // 제품정보 수정
 
 	boolean del(String idList); // 제품정보 삭제
+
+	List<productDto> frontList(productParam parameter); // 제품정보 fr
+
+	productDto frontDetail(long id); // 제품 fr 상세정보
 }

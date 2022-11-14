@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>제품 상세정보</title>
+</head>
+<body>
+<h1>제품 상세정보</h1>
+
+<div>
+  <h2>제품명 : <span th:text="${detail.name}">제품</span></h2>
+  <div th:utext="${detail.contents}"></div>
+</div>
+<div>
+  <p>가격 : <span th:text="${detail.price}">0</span></p>
+</div>
+<div>
+  <button type="button">의뢰신청</button>
+  <a href="/product">제품목록</a>
+</div>
+</body>
+</html>
