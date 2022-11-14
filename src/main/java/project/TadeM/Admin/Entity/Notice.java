@@ -24,7 +24,6 @@ public class Notice {
 	private String title;
 	private String contents;
 	private LocalDateTime regDt;
-	private int hits;
 
 }
 

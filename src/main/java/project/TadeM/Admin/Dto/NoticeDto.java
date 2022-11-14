@@ -17,6 +17,5 @@ public class NoticeDto {
 	private String title;
 	private String contents;
 	private LocalDateTime regDt;
-	private int hits;
 
 }

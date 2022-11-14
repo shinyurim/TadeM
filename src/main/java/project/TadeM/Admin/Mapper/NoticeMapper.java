@@ -8,7 +8,6 @@ import project.TadeM.Admin.Dto.NoticeDto;
 public interface NoticeMapper {
 	List<NoticeDto> selectNoticeList() throws Exception;
 	void insertNotice(NoticeDto notice) throws Exception;
-	void updateHitCount(int id) throws Exception;
 	NoticeDto selectNoticeDetail(int id) throws Exception;
 
 }

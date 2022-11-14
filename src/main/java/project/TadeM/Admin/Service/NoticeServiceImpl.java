@@ -33,7 +33,6 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public NoticeDto selectNoticeDetail(int id) throws Exception {
-		noticeMapper.updateHitCount(id);
 
 		NoticeDto notice = noticeMapper.selectNoticeDetail(id);
 
