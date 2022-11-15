@@ -1,4 +1,4 @@
-package project.TadeM.Order.entity;
+package project.TadeM.product.entity;
 
 
 import java.time.LocalDateTime;
@@ -16,7 +16,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class TakeProduct implements TakeProductCode {
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

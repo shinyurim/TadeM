@@ -10,7 +10,7 @@ public class productInput {
 	Integer categoryId;
 
 	String contents;
-	int price;
+	long price;
 	String period;
 
 	String idList; // 삭제위한

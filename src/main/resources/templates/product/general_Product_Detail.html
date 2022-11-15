@@ -3,6 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <title>제품 상세정보</title>
+  <style>
+    span.price {
+      text-decoration: line-through;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <script>
+    $(function (){
+      $('#submitForm').on('submit', function (){
+
+        if (!confirm('의뢰 신청을 진행하시겠습니까?')){
+          return false;
+        }
+
+        var  $thisForm = $(this);
+
+        var url = '/api/product/req';
+        var parameter = {
+          courseId: $thisForm.find('input[name=id]').val()
+        };
+        axios.post(url, parameter).then(function (response){
+          console.log(response)
+
+          if (msg != ''){
+            alert(msg);
+          }
+
+        }).catch(function (err){
+          console.log(err);
+
+        });
+
+        return false;
+      });
+    });
+  </script>
 </head>
 <body>
 <h1>제품 상세정보</h1>
@@ -15,8 +53,11 @@
   <p>가격 : <span th:text="${detail.price}">0</span></p>
 </div>
 <div>
-  <button type="button">의뢰신청</button>
+  <form id="submitForm" method="post">
+    <input type="hidden" name="id" th:value="${detail.id}"/>
+  <button type="submit">의뢰신청</button>
   <a href="/product">제품목록</a>
+  </form>
 </div>
 </body>
 </html>

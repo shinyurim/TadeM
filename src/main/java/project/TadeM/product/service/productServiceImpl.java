@@ -1,6 +1,7 @@
 package project.TadeM.product.service;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -8,9 +9,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import project.TadeM.product.Dto.productDto;
 import project.TadeM.product.Mapper.productMapper;
+import project.TadeM.product.entity.TakeProduct;
 import project.TadeM.product.entity.product;
+import project.TadeM.product.model.ServiceResult;
 import project.TadeM.product.model.productInput;
 import project.TadeM.product.model.productParam;
+import project.TadeM.product.model.takeProductInput;
+import project.TadeM.product.repository.TakeProductRepository;
 import project.TadeM.product.repository.productRepository;
 
 @RequiredArgsConstructor
@@ -19,6 +24,7 @@ public class productServiceImpl implements productService {
 
 	private final productRepository productRepository;
 	private final productMapper productMapper;
+	private final TakeProductRepository takeProductRepository;
 
 	@Override
 	public boolean write(productInput parameter) {
@@ -121,5 +127,43 @@ public class productServiceImpl implements productService {
 			return productDto.of(optionalProduct.get());
 		}
 		return null;
+	}
+
+	@Override
+	public ServiceResult req(takeProductInput parameter) {
+
+		ServiceResult result = new ServiceResult();
+
+		Optional<product> optionalProduct = productRepository.findById(parameter.getCourseId());
+		if (!optionalProduct.isPresent()) {
+			result.setResult(false);
+			result.setMessage("정보가 존재하지 않습니다.");
+			return result;
+		}
+		product pr = optionalProduct.get();
+
+		String[] statusList = {TakeProduct.STATUS_ING, TakeProduct.STATUS_COMPLETE};
+		long count = takeProductRepository.countByProductIdAndUserIdAndStatusIn(
+			pr.getId(), parameter.getUserId(), Arrays.asList(statusList));
+
+		if (count > 0){
+			result.setResult(false);
+			result.setMessage("이미 신청하신 의뢰입니다.");
+			return result;
+		}
+
+		TakeProduct takeProduct = TakeProduct.builder()
+			.productId(pr.getId())
+			.userId(parameter.getUserId())
+			.payPrice(pr.getPrice())
+			.regDt(LocalDateTime.now())
+			.status(TakeProduct.STATUS_ING)
+			.build();
+
+		takeProductRepository.save(takeProduct);
+
+		result.setResult(true);
+		result.setMessage("");
+		return result;
 	}
 }

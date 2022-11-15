@@ -2,8 +2,10 @@ package project.TadeM.product.service;
 
 import java.util.List;
 import project.TadeM.product.Dto.productDto;
+import project.TadeM.product.model.ServiceResult;
 import project.TadeM.product.model.productInput;
 import project.TadeM.product.model.productParam;
+import project.TadeM.product.model.takeProductInput;
 
 public interface productService {
 
@@ -20,4 +22,6 @@ public interface productService {
 	List<productDto> frontList(productParam parameter); // 제품정보 fr
 
 	productDto frontDetail(long id); // 제품 fr 상세정보
+
+	ServiceResult req(takeProductInput parameter);
 }

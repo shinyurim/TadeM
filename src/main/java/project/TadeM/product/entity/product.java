@@ -26,7 +26,7 @@ public class product {
 
 	String name; // 제품 이름
 	String contents; // 제품 내용
-	int price; // 제품 가격
+	Long price; // 제품 가격
 	LocalDateTime regDt; // 제품 등록일
 	String period; // 작업기간
 }

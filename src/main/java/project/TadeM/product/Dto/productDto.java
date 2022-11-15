@@ -33,7 +33,7 @@ public class productDto {
 			.categoryId(product.getCategoryId())
 			.name(product.getName())
 			.contents(product.getContents())
-			.price(product.getPrice())
+			.price(Math.toIntExact(product.getPrice()))
 			.period(product.getPeriod())
 			.regDt(product.getRegDt())
 			.build();
