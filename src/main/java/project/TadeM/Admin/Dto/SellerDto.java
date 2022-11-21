@@ -1,9 +1,16 @@
 package project.TadeM.Admin.Dto;
 
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import project.TadeM.Member.Entity.Seller;
 
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Data
 public class SellerDto{
 

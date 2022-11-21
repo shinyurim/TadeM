@@ -51,6 +51,7 @@ public class AdminMemberController {
 	}
 
 
+
 	@GetMapping("/member_List_Buyer") // 관리자 - 회원관리(구매자)
 	public String member_Buyer(Model model, BuyerParam parameter) {
 

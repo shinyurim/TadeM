@@ -31,13 +31,13 @@ public class requestController {
 		return mv;
 	}
 
-	@RequestMapping("/board_Write") // 작성page
+	@RequestMapping("/board_Write")
 	public String boardWrite() throws Exception{
 
 		return "/requestBoard/board_Write";
 	}
 
-	@RequestMapping("/insertBoard") // 실제 작성db
+	@RequestMapping("/insertBoard")
 	public String insertBoard(@ModelAttribute BoardDto board) throws Exception{
 		boardService.insertBoard(board);
 		return "redirect:/requestBoard/board_List";

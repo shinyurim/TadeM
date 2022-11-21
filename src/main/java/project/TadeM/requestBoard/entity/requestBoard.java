@@ -1,7 +1,6 @@
 package project.TadeM.requestBoard.entity;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,5 +27,6 @@ public class requestBoard {
 	private int hits;
 	private int price;
 	private String period;
+
 
 }

@@ -25,6 +25,7 @@ public class productDto {
 	int price; // 제품 가격
 	LocalDateTime regDt; // 제품 등록일
 	String period; // 작업기간
+	int hits; // 조회수
 
 	public static productDto of(product product) {
 
@@ -36,6 +37,7 @@ public class productDto {
 			.price(Math.toIntExact(product.getPrice()))
 			.period(product.getPeriod())
 			.regDt(product.getRegDt())
+			.hits(product.getHits())
 			.build();
 	}
 

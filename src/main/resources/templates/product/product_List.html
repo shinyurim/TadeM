@@ -8,19 +8,22 @@
       width: 100%;
       border-collapse: collapse;
     }
+
     .list table th, .list table td {
       border: solid 1px #000;
     }
 
-    p.nothing{
+    p.nothing {
       text-align: center;
       padding: 100px;
     }
-    .list .buttons{
+
+    .list .buttons {
       position: relative;
       padding: 10px 0;
     }
-    .list.buttons a, .list.buttons button{
+
+    .list.buttons a, .list.buttons button {
       border-width: 0;
       background-color: transparent;
       text-decoration: underline;
@@ -37,23 +40,20 @@
       left: 0;
     }
   </style>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+          crossorigin="anonymous"></script>
   <script>
 
     $(document).ready(function () {
-
-      $('#selectAll').on('click', function (){
-
+      $('#selectAll').on('click', function () {
         var checked = $(this).is(':checked');
-
-        $('#dataList input[type=checkbox]').each(function (k, v){
+        $('#dataList input[type=checkbox]').each(function (k, v) {
           $(this).prop('checked', checked);
-
         });
       });
 
       $('#deleteButton').on('click', function () {
-
         var $checked = $('#dataList input[type=checkbox]:checked');
         if ($checked.length < 1) {
           alert(' 삭제할 데이터를 선택해주세요.');
@@ -62,25 +62,24 @@
         if (!confirm('정말 삭제하시겠습니까?')) {
           return false;
         }
-
         var idList = [];
         $.each($checked, function (k, v) {
           idList.push($(this).val());
         });
-
         var $deleteForm = $('form[name=deleteForm]');
-        $deleteForm.find('input[name=idList').val(idList.join(','));
+        $deleteForm.find('input[name=idList]').val(idList.join(','));
         $deleteForm.submit()
       });
     });
   </script>
+
 </head>
 <body>
 <h1> 내 제품관리</h1>
-  <div class="buttons">
-      <p class="total-count">현재 <span th:text="${totalCount}"></span> 개의 제품을 판매중입니다. </p>
+<div class="buttons">
+  <p class="total-count">현재 <span th:text="${totalCount}"></span> 개의 제품을 판매중입니다. </p>
   <a href="/product/write"> 제품 등록</a>
-    <button id="deleteButton" type="button"> 선택 삭제</button>
+  <button id="deleteButton" type="button"> 선택 삭제</button>
 </div>
 <div class="list">
   <table>
@@ -89,9 +88,9 @@
       <th>
         <input id="selectAll" type="checkbox"/>
       </th>
-      <th> ID </th>
-      <th> 제품이름 </th>
-      <th> 제품등록일 </th>
+      <th> ID</th>
+      <th> 제품이름</th>
+      <th> 제품등록일</th>
     </tr>
     </thead>
     <tbody id="dataList">
@@ -99,7 +98,7 @@
       <td>
         <input type="checkbox" th:value="${x.id}"/>
       </td>
-        <td th:text="${x.seq}">1</td>
+      <td th:text="${x.seq}">1</td>
       <td>
         <p>
           <a th:href="'edit?id=' + ${x.id}" th:text="${x.name}">제품명</a>
@@ -115,7 +114,7 @@
   </div>
 </div>
 <form name="deleteForm" method="post" action="/product/delete">
-  <input type="hidden" name="idList" />
+  <input type="hidden" name="idList"/>
 </form>
 
 </body>

@@ -7,12 +7,12 @@
 
   <select id="selectBoardList" resultType="project.TadeM.requestBoard.dto.BoardDto">
 
-		select
-		id, title, hits, price, period
-		from requestBoard
-		order by id;
+    select
+    id, title, hits, price, period
+    from requestBoard
+    order by id;
 
-	</select>
+  </select>
 
   <insert id="insertBoard" parameterType="project.TadeM.requestBoard.dto.BoardDto">
     <![CDATA[
@@ -33,8 +33,8 @@
         ]]>
   </insert>
 
-	<update id="updateHitCount" parameterType="int">
-		<![CDATA[
+  <update id="updateHitCount" parameterType="int">
+    <![CDATA[
 			UPDATE
 				requestBoard
 			SET
@@ -42,9 +42,11 @@
 			WHERE
 				id = #{id}
 		]]>
-	</update>
-	<select id="selectBoardDetail" parameterType="int" resultType="project.TadeM.requestBoard.dto.BoardDto">
-		<![CDATA[
+  </update>
+
+  <select id="selectBoardDetail" parameterType="int"
+    resultType="project.TadeM.requestBoard.dto.BoardDto">
+    <![CDATA[
 			SELECT
 				id, title, contents, hits,
 				regDt, price, period
@@ -53,9 +55,5 @@
 			WHERE
 				id = ${id}
 		]]>
-	</select>
-
-
-
-
+  </select>
 </mapper>

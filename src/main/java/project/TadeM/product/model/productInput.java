@@ -15,4 +15,7 @@ public class productInput {
 
 	String idList; // 삭제위한
 
+	String filename;
+	String urlFilename;
+
 }

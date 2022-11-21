@@ -26,11 +26,12 @@ public class productServiceImpl implements productService {
 	private final productMapper productMapper;
 	private final TakeProductRepository takeProductRepository;
 
+
 	@Override
 	public boolean write(productInput parameter) {
 
 		product pr = product.builder()
-			.categoryId((int) parameter.getCategoryId())
+			.categoryId(parameter.getCategoryId())
 			.name(parameter.getName())
 			.contents(parameter.getContents())
 			.price(parameter.getPrice())
@@ -61,7 +62,6 @@ public class productServiceImpl implements productService {
 
 	@Override
 	public productDto getById(long id) {
-
 		return productRepository.findById(id).map(productDto::of).orElse(null);
 	}
 
@@ -78,7 +78,6 @@ public class productServiceImpl implements productService {
 		pr.setContents(parameter.getContents());
 		pr.setPrice(parameter.getPrice());
 		pr.setPeriod(parameter.getPeriod());
-
 		productRepository.save(pr);
 
 		return true;
@@ -121,7 +120,7 @@ public class productServiceImpl implements productService {
 
 	@Override
 	public productDto frontDetail(long id) {
-
+		productMapper.updateHitCount((int) id);
 		Optional<product> optionalProduct = productRepository.findById(id);
 		if (optionalProduct.isPresent()){
 			return productDto.of(optionalProduct.get());

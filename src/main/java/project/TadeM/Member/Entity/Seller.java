@@ -8,13 +8,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import project.TadeM.Admin.Dto.SellerDto;
+import project.TadeM.product.Dto.productDto;
+import project.TadeM.product.entity.product;
 
 @Entity(name = "seller")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
-public class Seller {
+public class Seller{
 
 	@Id
 	private String sellerEmail; // 이메일

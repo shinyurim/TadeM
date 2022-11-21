@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import project.TadeM.Admin.Dto.SellerDto;
 import project.TadeM.Admin.model.SellerParam;
 import project.TadeM.Member.Input.SellerInput;
+import project.TadeM.product.Dto.productDto;
 
 public interface SellerService extends UserDetailsService{
 
@@ -13,6 +14,5 @@ public interface SellerService extends UserDetailsService{
 	boolean SellerEmailAuth(String uuid);
 
 	List<SellerDto> list(SellerParam parameter); // 판매자 목록 리턴(관리자 이용)
-
 
 }

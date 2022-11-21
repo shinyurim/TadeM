@@ -22,6 +22,7 @@ import project.TadeM.Member.Input.SellerInput;
 import project.TadeM.Member.Repository.SellerRepository;
 import project.TadeM.Member.exception.BuyerNotEmailAuthException;
 import project.TadeM.components.MailComponents;
+import project.TadeM.product.Dto.productDto;
 
 @RequiredArgsConstructor
 @Service
@@ -95,6 +96,8 @@ public class SellerServiceImpl implements SellerService {
 
 		return list;
 	}
+
+
 
 
 	@Override

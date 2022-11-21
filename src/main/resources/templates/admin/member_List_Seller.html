@@ -44,15 +44,11 @@
   |
   <a href="/admin/category/category_List">카테고리 관리</a>
   |
-  <a href="/admin/banner">배너 관리</a> <!-- 미작성-->
-  |
   <a href="/admin/notice/main">공지사항 관리</a>
   |
-  <a href="/admin/QA_Service">Q&A 서비스 관리</a> <!-- 미작성-->
+  <a href="/admin/qna/main">Q&A 서비스 관리</a>
   |
-  <a href="/admin/banner">거래내역 관리</a> <!-- 미작성-->
-  |
-  <a href="/member/logout">로그아웃</a><!-- 미작성-->
+  <a href="/member/logout">로그아웃</a>
   <hr/>
 </div>
 <div>
@@ -83,6 +79,7 @@
         <th>이메일</th>
         <th>연락처</th>
         <th>가입일</th>
+        <th>보유금액</th>
       </tr>
     </thead>
     <tbody>
@@ -93,7 +90,8 @@
         <td th:text="${x.sellerEmail}">yurim12@naver.com</td>
         <td th:text="${x.sellerTel}">010-1111-2222</td>
         <td>
-          <p th:text="${x.regDt}">2022-10-28 </p>
+          <p th:text="${x.regDt}">2022-10-28 </p></td>
+        <td th:text="${x.myPrice}"></td>
       </tr>
     </tbody>
   </table>

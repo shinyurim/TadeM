@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -105,10 +102,6 @@ public class BuyerServiceImpl implements BuyerService{
 		}
 
 		Buyer buyer = optionalBuyer.get();
-
-		if (!buyer.isMailAuthYn()){
-			throw new BuyerNotEmailAuthException("이메일을 활성화 하신 후 이용해주세요.");
-		}
 
 		List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 

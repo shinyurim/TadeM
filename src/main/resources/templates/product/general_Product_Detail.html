@@ -8,6 +8,19 @@
       text-decoration: line-through;
     }
   </style>
+  <h1> TadeM</h1>
+  <div>
+    <a href="/member/buyer_Mypage">마이페이지</a>
+    |
+    <a href="/requestBoard/board_List">의뢰게시판</a>
+    |
+    <a href="/admin/qna/general_Main">Q&A</a>
+    |
+    <a href="/admin/notice/general_Main">공지사항</a>
+    |
+    <a href="/member/logout">로그아웃</a>
+    <hr/>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
@@ -44,7 +57,7 @@
 </head>
 <body>
 <h1>제품 상세정보</h1>
-
+<p>조회수 : <span th:text="${detail.hits}">1</span></p>
 <div>
   <h2>제품명 : <span th:text="${detail.name}">제품</span></h2>
   <div th:utext="${detail.contents}"></div>

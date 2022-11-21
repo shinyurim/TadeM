@@ -34,9 +34,12 @@
     </if>
   </select>
 
+
   <select id="selectList"
     parameterType="project.TadeM.product.model.productParam"
     resultType="project.TadeM.product.Dto.productDto">
+
+
 
     select *
     from product
@@ -66,4 +69,15 @@
     limit #{pageStart}, #{pageEnd}
 
   </select>
+
+  <update id="updateHitCount" parameterType="int">
+    <![CDATA[
+			UPDATE
+				product
+			SET
+				hits = hits + 1
+			WHERE
+				id = #{id}
+		]]>
+  </update>
 </mapper>

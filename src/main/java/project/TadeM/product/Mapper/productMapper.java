@@ -12,4 +12,5 @@ public interface productMapper {
 
 	List<productDto> selectList(productParam parameter);
 
+	void updateHitCount(int id);
 }
